@@ -35,7 +35,6 @@
 
 <script src="build/stm_web.min.js"></script>
 <script>
-  var mic_click;
   document.addEventListener('DOMContentLoaded', function() {
 
     // load dropdown
@@ -76,7 +75,7 @@
 
   // Set a handler for results
   function listener(msg) {
-    //console.log('listener', msg);
+    console.log('listener', msg);
 
     if (msg.state == 'result') {
       // Display results
@@ -126,15 +125,15 @@
       button.listening = true;
       // testing
       var testText = document.querySelector('.test').value;
-      if (testText) {
+      /*if (testText) {
         setTimeout(function() {
           say(document.querySelector('.test').value);
         }, 500);
-      }
+      }*/
     }
   }
   button.addEventListener('click', onMicClick);
-  mic_click = onMicClick;
+  document.addEventListener("start-mic", onMicClick);
   });
 </script>
 </body>
