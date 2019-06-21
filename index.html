@@ -44,7 +44,6 @@
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Choose Language';
     dropdown.add(defaultOption);
-    dropdown.selectedIndex = 0;
     const url = 'https://raw.githubusercontent.com/mozilla/speech-proxy/master/languages.json';
 
     fetch(url)
@@ -63,6 +62,8 @@
               option.value = Object.keys(data)[i];
               dropdown.add(option);
             }
+            dropdown.selectedIndex = 25;
+
       });
     }
   )
