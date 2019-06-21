@@ -75,7 +75,7 @@
 
   // Set a handler for results
   function listener(msg) {
-    console.log('listener', msg);
+    console.log('listener', JSON.stringify(msg));
 
     if (msg.state == 'result') {
       // Display results
@@ -86,6 +86,9 @@
         resultsView.innerHTML += '"' + result.text +
           '", confidence: ' + result.confidence + '<br>';
       });
+      let event = new CustomEvent("response-received");
+      event.detail = JSON.stringify(result);
+      document.dispatchEvent(event);
     }
     else if (msg.state == 'ready') {
       button.innerText = "Listen";
