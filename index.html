@@ -86,8 +86,7 @@
         resultsView.innerHTML += '"' + result.text +
           '", confidence: ' + result.confidence + '<br>';
       });
-      let event = new CustomEvent("response-received");
-      event.detail = JSON.stringify(result);
+      let event = new CustomEvent("response-received", {detail: JSON.stringify(result)});
       document.dispatchEvent(event);
     }
     else if (msg.state == 'ready') {
